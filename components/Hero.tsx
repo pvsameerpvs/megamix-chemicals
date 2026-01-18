@@ -40,10 +40,7 @@ export function Hero() {
       <div className="relative z-10 flex flex-col items-center justify-center py-20 text-center">
         <div className="container space-y-12">
           
-          {/* Brand Logo - Optional, but keeping text focus for now */}
-           <div className="mx-auto mb-6 w-24 sm:w-32">
-             <Image src="/images/logo.png" alt="Megamix Chemicals" width={128} height={128} className="w-full h-auto" />
-           </div>
+          
 
           {/* Heading Section */}
           <div className="space-y-4">
@@ -79,11 +76,7 @@ export function Hero() {
           </div>
 
           {/* Website URL text like in the image */}
-          <div className="absolute bottom-4 left-0 w-full text-center">
-             <p className="text-sm font-semibold tracking-wider text-white bg-[color:var(--brand-navy)] py-4 uppercase">
-               www.megamixchemicals.com
-             </p>
-          </div>
+        
 
         </div>
       </div>
