@@ -1,5 +1,6 @@
 "use client";
 
+import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -19,20 +20,21 @@ const navLinks = [
 
 export function Navbar() {
   const pathname = usePathname();
+  const [open, setOpen] = React.useState(false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur">
-      <div className="container flex h-16 items-center justify-between">
+      <div className="container flex h-20 items-center justify-between">
         <Link href="/" className="flex items-center gap-3">
           <Image
             src="/images/logo.png"
             alt="Megamix Chemicals"
-            width={36}
-            height={36}
+            width={48}
+            height={48}
             priority
           />
           <div className="leading-tight">
-            <p className="text-sm font-semibold tracking-tight text-[color:var(--brand-navy)]">
+            <p className="text-lg font-bold tracking-tight text-[color:var(--brand-navy)]">
               Megamix Chemicals
             </p>
             <p className="hidden text-xs text-slate-500 sm:block">
@@ -60,10 +62,10 @@ export function Navbar() {
         </nav>
 
         <div className="md:hidden">
-          <Sheet>
+          <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <Button variant="outline" size="icon" aria-label="Open menu">
-                <Menu className="h-5 w-5" />
+                <Menu className="h-6 w-6" />
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="pt-12">
@@ -72,11 +74,11 @@ export function Navbar() {
                   <Image
                     src="/images/logo.png"
                     alt="Megamix Chemicals"
-                    width={36}
-                    height={36}
+                    width={48}
+                    height={48}
                   />
                   <div className="leading-tight">
-                    <p className="text-sm font-semibold text-[color:var(--brand-navy)]">
+                    <p className="text-base font-bold text-[color:var(--brand-navy)]">
                       Megamix Chemicals
                     </p>
                     <p className="text-xs text-slate-500">
@@ -90,6 +92,7 @@ export function Navbar() {
                     <Link
                       key={l.href}
                       href={l.href}
+                      onClick={() => setOpen(false)}
                       className={cn(
                         "rounded-xl px-4 py-3 text-sm font-medium text-slate-800 hover:bg-slate-100",
                         pathname === l.href && "bg-slate-100"
@@ -100,7 +103,7 @@ export function Navbar() {
                   ))}
                 </div>
 
-                <Button asChild variant="cta" className="w-full">
+                <Button asChild variant="cta" className="w-full" onClick={() => setOpen(false)}>
                   <Link href="/contact">Contact Sales</Link>
                 </Button>
               </div>

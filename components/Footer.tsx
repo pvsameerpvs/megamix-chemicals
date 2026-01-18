@@ -1,82 +1,99 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 const company = {
   name: "Megamix Chemicals",
-  address: "GODAMBU ROAD MUKKAM KOZHIKKODE KERALA INDIA",
-  phone: "+919747843000",
+  address: "Godambu Road, Mukkam, Kozhikode, Kerala, India",
+  phone: "+91 9747 843 000",
   email: "Megamixchemicals@gmail.com",
   website: "www.megamixchemicals.com"
 };
 
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About Us" },
+  { href: "/products", label: "Our Products" },
+  { href: "/contact", label: "Contact Sales" },
+  { href: "/privacy", label: "Privacy Policy" },
+];
+
 export function Footer() {
   return (
-    <footer className="border-t border-slate-200 bg-white">
-      <div className="container py-12">
-        <div className="grid gap-8 md:grid-cols-12">
-          <div className="md:col-span-6 space-y-3">
-            <p className="text-sm font-semibold text-[color:var(--brand-navy)]">
-              {company.name}
-            </p>
-            <p className="text-sm text-slate-600 max-w-md">
-              Premium construction chemical solutions engineered for strength, durability, and performance.
-            </p>
+    <footer className="bg-[color:var(--brand-navy)] text-white">
+      <div className="container pt-16 pb-8">
+        <div className="grid gap-10 md:grid-cols-12 lg:gap-16">
+          {/* Brand Column */}
+          <div className="md:col-span-5 space-y-6">
+             <div className="flex items-center gap-3">
+                <div className="rounded-lg bg-white p-2">
+                   <Image
+                     src="/images/logo.png"
+                     alt="Megamix Chemicals"
+                     width={40}
+                     height={40}
+                   />
+                </div>
+                <div className="leading-none">
+                  <p className="text-lg font-bold">Megamix Chemicals</p>
+                  <p className="text-xs text-white/60 mt-1">Industrial Construction Solutions</p>
+                </div>
+             </div>
+             
+             <p className="text-slate-300 leading-relaxed max-w-sm">
+               Engineering the future of construction with high-performance operational chemistry. Built for strength, designed for durability.
+             </p>
           </div>
 
-          <div className="md:col-span-3 space-y-3">
-            <p className="text-xs font-semibold tracking-[0.22em] uppercase text-slate-500">
+          {/* Quick Links */}
+          <div className="md:col-span-3 lg:col-span-3 space-y-6">
+            <h4 className="text-sm font-bold uppercase tracking-[0.15em] text-[color:var(--brand-yellow)]">
               Quick Links
-            </p>
-            <div className="grid gap-2 text-sm">
-              <Link href="/products" className="text-slate-700 hover:text-[color:var(--brand-navy)]">
-                Products
-              </Link>
-              <Link href="/about" className="text-slate-700 hover:text-[color:var(--brand-navy)]">
-                About
-              </Link>
-              <Link href="/contact" className="text-slate-700 hover:text-[color:var(--brand-navy)]">
-                Contact
-              </Link>
+            </h4>
+            <div className="flex flex-col gap-3 text-sm">
+              {navLinks.map((link) => (
+                <Link 
+                  key={link.href} 
+                  href={link.href}
+                  className="text-slate-300 transition-colors hover:text-white hover:translate-x-1 inline-block"
+                >
+                  {link.label}
+                </Link>
+              ))}
             </div>
           </div>
 
-          <div className="md:col-span-3 space-y-3">
-            <p className="text-xs font-semibold tracking-[0.22em] uppercase text-slate-500">
-              Contact
-            </p>
-            <div className="space-y-1 text-sm text-slate-700">
-              <p>{company.address}</p>
-              <p>
-                <a className="hover:text-[color:var(--brand-navy)]" href={`tel:${company.phone}`}>
-                  {company.phone}
-                </a>
-              </p>
-              <p>
-                <a className="hover:text-[color:var(--brand-navy)]" href={`mailto:${company.email}`}>
-                  {company.email}
-                </a>
-              </p>
-              <p>
-                <a
-                  className="hover:text-[color:var(--brand-navy)]"
-                  href={`https://${company.website}`}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {company.website}
-                </a>
-              </p>
+          {/* Contact Info */}
+          <div className="md:col-span-4 lg:col-span-4 space-y-6">
+            <h4 className="text-sm font-bold uppercase tracking-[0.15em] text-[color:var(--brand-yellow)]">
+              Get in Touch
+            </h4>
+            <div className="space-y-4 text-sm text-slate-300">
+              <div className="flex gap-3 items-start">
+                 <MapPin className="h-5 w-5 text-[color:var(--brand-yellow)] shrink-0 mt-0.5" />
+                 <p className="leading-relaxed">{company.address}</p>
+              </div>
+              <div className="flex gap-3 items-center">
+                 <Phone className="h-5 w-5 text-[color:var(--brand-yellow)] shrink-0" />
+                 <a href={`tel:${company.phone}`} className="hover:text-white transition-colors">{company.phone}</a>
+              </div>
+              <div className="flex gap-3 items-center">
+                 <Mail className="h-5 w-5 text-[color:var(--brand-yellow)] shrink-0" />
+                 <a href={`mailto:${company.email}`} className="hover:text-white transition-colors">{company.email}</a>
+              </div>
             </div>
           </div>
         </div>
 
-        <Separator className="my-10" />
+        <Separator className="my-10 bg-white/10" />
 
-        <div className="flex flex-col gap-3 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-4 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} {company.name}. All rights reserved.</p>
-          <Link href="/privacy" className="hover:text-[color:var(--brand-navy)]">
-            Privacy Policy
-          </Link>
+          <div className="flex gap-6">
+             <Link href="/privacy" className="hover:text-white transition-colors">Terms of Service</Link>
+             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+          </div>
         </div>
       </div>
     </footer>
