@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { SectionHeading } from "@/components/SectionHeading";
+import { Hero } from "@/components/Hero";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -53,82 +54,7 @@ export default function HomePage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="h-full w-full bg-grid" />
-          <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-slate-50" />
-        </div>
-
-        <div className="container py-16 sm:py-20">
-          <div className="grid items-center gap-10 lg:grid-cols-12">
-            <div className="lg:col-span-6 space-y-7">
-              <Badge variant="navy" className="w-fit">
-                Premium Industrial Manufacturing
-              </Badge>
-              <h1 className="text-4xl font-semibold tracking-tight text-[color:var(--brand-navy)] sm:text-5xl">
-                Advanced Construction Chemical Solutions
-              </h1>
-              <p className="text-lg text-slate-600">
-                Built for strength, durability, and performance — Megamix Chemicals delivers high-quality admixtures,
-                waterproofing systems, and finishing solutions for modern construction.
-              </p>
-              <div className="flex flex-col gap-3 sm:flex-row">
-                <Button asChild variant="cta" size="lg">
-                  <Link href="/products">View Products</Link>
-                </Button>
-                <Button asChild variant="outline" size="lg">
-                  <Link href="/contact">Contact Sales</Link>
-                </Button>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-3">
-                {[
-                  { k: "Precast", v: "Fast cycles" },
-                  { k: "Ready-Mix", v: "Stable slumps" },
-                  { k: "Waterproofing", v: "Long protection" }
-                ].map((item) => (
-                  <div key={item.k} className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                    <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-500">
-                      {item.k}
-                    </p>
-                    <p className="mt-1 text-sm font-semibold text-slate-900">{item.v}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="lg:col-span-6">
-              <div className="relative overflow-hidden rounded-xl border border-slate-200 bg-white shadow-card">
-                <div className="relative h-[340px] sm:h-[420px]">
-                  <Image
-                    src="/images/hero-industrial.svg"
-                    alt="Industrial manufacturing and construction chemistry"
-                    fill
-                    priority
-                    className="object-cover"
-                  />
-                </div>
-                <div className="grid gap-4 p-6 sm:grid-cols-2">
-                  <div className="flex items-start gap-3">
-                    <Image src="/images/icon-lab.svg" alt="R&D" width={36} height={36} />
-                    <div>
-                      <p className="text-sm font-semibold text-slate-900">R&D & Quality</p>
-                      <p className="text-sm text-slate-600">Process-driven, tested formulations.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Image src="/images/icon-support.svg" alt="Support" width={36} height={36} />
-                    <div>
-                      <p className="text-sm font-semibold text-slate-900">Technical Support</p>
-                      <p className="text-sm text-slate-600">Guidance from mix to application.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Hero />
 
       {/* Key Strengths */}
       <section className="py-16">
