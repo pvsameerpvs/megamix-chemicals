@@ -16,7 +16,6 @@ const navLinks = [
   { href: "/about", label: "About Us" },
   { href: "/products", label: "Our Products" },
   { href: "/contact", label: "Contact Sales" },
-  { href: "/privacy", label: "Privacy Policy" },
 ];
 
 export function Footer() {
@@ -88,13 +87,7 @@ export function Footer() {
 
         <Separator className="my-10 bg-white/10" />
 
-        <div className="flex flex-col gap-4 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} {company.name}. All rights reserved.</p>
-          <div className="flex gap-6">
-             <Link href="/privacy" className="hover:text-white transition-colors">Terms of Service</Link>
-             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-          </div>
-        </div>
+       
       </div>
     </footer>
   );

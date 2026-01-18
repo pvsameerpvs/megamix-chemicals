@@ -15,7 +15,7 @@ const navLinks = [
   { href: "/about", label: "About" },
   { href: "/products", label: "Products" },
   { href: "/contact", label: "Contact" },
-  { href: "/privacy", label: "Privacy" }
+  
 ];
 
 export function Navbar() {

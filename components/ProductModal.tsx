@@ -26,20 +26,22 @@ export function ProductModal({ product, open, onOpenChange }: Props) {
       <DialogContent className="max-h-[85vh] overflow-y-auto p-0">
         {product ? (
           <div>
-            <div className="relative h-56 w-full">
+            <div className="relative h-72 sm:h-80 w-full bg-slate-50">
               <Image
                 src={product.image}
                 alt={product.name}
                 fill
-                className="object-cover"
+                className="object-contain p-4"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/55 to-transparent" />
-              <div className="absolute bottom-4 left-6 right-6 flex items-end justify-between gap-3">
+              {/* Gradient only at the bottom for text readability */}
+              <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-900/90 to-transparent" />
+              
+              <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between gap-3">
                 <div>
-                  <Badge variant="subtle" className="mb-2">
+                  <Badge variant="subtle" className="mb-2 bg-white/90 backdrop-blur-sm">
                     {product.category}
                   </Badge>
-                  <h3 className="text-2xl font-semibold tracking-tight text-white">
+                  <h3 className="text-2xl font-bold tracking-tight text-white drop-shadow-md">
                     {product.name}
                   </h3>
                 </div>
