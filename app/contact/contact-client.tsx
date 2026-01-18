@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { toast } from "sonner";
+import { Mail, MapPin, Phone, ArrowRight, Building2, Clock } from "lucide-react";
 
 import { SectionHeading } from "@/components/SectionHeading";
 import { Card, CardContent } from "@/components/ui/card";
@@ -53,140 +54,178 @@ export default function ContactClient() {
   }
 
   return (
-    <div>
-      <section className="py-16 sm:py-20">
-        <div className="container">
-          <div className="grid gap-10 lg:grid-cols-12">
-            <div className="lg:col-span-5 space-y-6">
-              <SectionHeading
-                eyebrow="Contact"
-                title="Talk to our sales & technical team"
-                description="Share your requirement and we’ll recommend the right solution, dosage, and application guidance."
-              />
+    <div className="min-h-screen bg-slate-50 flex flex-col justify-center py-10 lg:py-20">
+      <div className="container">
+        <div className="grid overflow-hidden rounded-2xl shadow-2xl lg:grid-cols-2">
+          
+          {/* Left Side: Contact Info & Branding */}
+          <div className="relative bg-[color:var(--brand-navy)] p-10 text-white lg:p-14 flex flex-col justify-between">
+            {/* Background Texture/Image */}
+            <div className="absolute inset-0 z-0 opacity-20">
+               <Image 
+                 src="/images/why_us_bg_1768724879676.png" 
+                 alt="Background" 
+                 fill 
+                 className="object-cover"
+               />
+               <div className="absolute inset-0 bg-[color:var(--brand-navy)] mix-blend-multiply" />
+            </div>
 
-              <div className="rounded-xl bg-[color:var(--brand-navy)] p-6 text-white shadow-card">
-                <p className="text-xs font-semibold tracking-[0.22em] uppercase text-white/70">
-                  Contact details
+            <div className="relative z-10 space-y-8">
+              <div>
+                <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--brand-yellow)]">
+                  Contact Us
                 </p>
-                <div className="mt-4 space-y-2 text-sm">
-                  <p className="text-white/80">{company.address}</p>
-                  <p>
-                    <a className="font-semibold hover:underline" href={`tel:${company.phone}`}>
-                      {company.phone}
-                    </a>
-                  </p>
-                  <p>
-                    <a className="font-semibold hover:underline" href={`mailto:${company.email}`}>
-                      {company.email}
-                    </a>
-                  </p>
-                </div>
-                <Separator className="my-6 bg-white/15" />
-                <div className="flex items-start gap-3">
-                  <Image src="/images/icon-support.svg" alt="Support" width={36} height={36} />
+                <h2 className="text-3xl font-bold sm:text-4xl">
+                  Let's Build Together
+                </h2>
+                <p className="mt-4 text-lg text-slate-300 leading-relaxed">
+                  Have a project in mind? Looking for product recommendations or technical support? Our team is ready to assist you.
+                </p>
+              </div>
+
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-white/10 backdrop-blur-sm">
+                    <MapPin className="h-6 w-6 text-[color:var(--brand-yellow)]" />
+                  </div>
                   <div>
-                    <p className="text-sm font-semibold">Fast response</p>
-                    <p className="text-sm text-white/80">
-                      We typically respond within one business day.
+                    <h3 className="font-semibold text-white">Our Facility</h3>
+                    <p className="mt-1 text-sm text-slate-300 max-w-xs">{company.address}</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-white/10 backdrop-blur-sm">
+                    <Phone className="h-6 w-6 text-[color:var(--brand-yellow)]" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-white">Call Us</h3>
+                    <p className="mt-1 text-sm text-slate-300">
+                      <a href={`tel:${company.phone}`} className="hover:text-white transition-colors">
+                        {company.phone}
+                      </a>
+                    </p>
+                    <p className="text-xs text-slate-400 mt-1">Mon-Sat from 9am to 6pm</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-white/10 backdrop-blur-sm">
+                    <Mail className="h-6 w-6 text-[color:var(--brand-yellow)]" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-white">Email Us</h3>
+                    <p className="mt-1 text-sm text-slate-300">
+                      <a href={`mailto:${company.email}`} className="hover:text-white transition-colors">
+                        {company.email}
+                      </a>
                     </p>
                   </div>
                 </div>
               </div>
-
-              <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
-                <p className="text-sm font-semibold text-[color:var(--brand-navy)]">
-                  Google Map
-                </p>
-                <p className="mt-2 text-sm text-slate-600">
-                  Embed your Google Map here (placeholder section).
-                </p>
-                <div className="mt-4 h-48 rounded-xl border border-slate-200 bg-white" aria-label="Map placeholder" />
-              </div>
             </div>
 
-            <div className="lg:col-span-7">
-              <Card className="overflow-hidden">
-                <CardContent className="p-8 sm:p-10">
-                  <p className="text-xs font-semibold tracking-[0.22em] uppercase text-slate-500">
-                    Send a message
-                  </p>
-                  <h1 className="mt-3 text-3xl font-semibold tracking-tight text-[color:var(--brand-navy)]">
-                    Contact Sales
-                  </h1>
-                  <p className="mt-2 text-sm text-slate-600">
-                    Fill the form below — no login required.
-                  </p>
-
-                  <form onSubmit={onSubmit} className="mt-8 grid gap-4">
-                    <div className="grid gap-4 sm:grid-cols-2">
-                      <div className="space-y-2">
-                        <label className="text-sm font-medium text-slate-800" htmlFor="name">
-                          Name
-                        </label>
-                        <Input
-                          id="name"
-                          required
-                          value={form.name}
-                          onChange={(e) => update("name", e.target.value)}
-                          placeholder="Your name"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <label className="text-sm font-medium text-slate-800" htmlFor="phone">
-                          Phone
-                        </label>
-                        <Input
-                          id="phone"
-                          required
-                          value={form.phone}
-                          onChange={(e) => update("phone", e.target.value)}
-                          placeholder="Phone number"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-slate-800" htmlFor="email">
-                        Email
-                      </label>
-                      <Input
-                        id="email"
-                        type="email"
-                        required
-                        value={form.email}
-                        onChange={(e) => update("email", e.target.value)}
-                        placeholder="you@example.com"
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-slate-800" htmlFor="message">
-                        Message
-                      </label>
-                      <Textarea
-                        id="message"
-                        required
-                        value={form.message}
-                        onChange={(e) => update("message", e.target.value)}
-                        placeholder="Tell us about your project, concrete grade, quantity, or waterproofing area..."
-                      />
-                    </div>
-
-                    <div className="flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-between">
-                      <p className="text-xs text-slate-500">
-                        By submitting, you agree we can contact you about your request.
-                      </p>
-                      <Button type="submit" variant="cta" size="lg" disabled={submitting}>
-                        {submitting ? "Sending..." : "Send Message"}
-                      </Button>
-                    </div>
-                  </form>
-                </CardContent>
-              </Card>
+            <div className="relative z-10 mt-10">
+               <div className="flex items-center gap-2 text-sm text-[color:var(--brand-yellow)]">
+                  <Clock className="w-4 h-4" />
+                  <span>Fast Response Guarantee</span>
+               </div>
+               <p className="text-xs text-slate-400 mt-1 pl-6">
+                  We typically respond to inquiries within 24 hours.
+               </p>
             </div>
           </div>
+
+          {/* Right Side: Contact Form */}
+          <div className="bg-white p-10 lg:p-14">
+            <div className="space-y-6">
+               <div className="space-y-2">
+                 <h3 className="text-2xl font-bold text-[color:var(--brand-navy)]">Send a Message</h3>
+                 <p className="text-slate-600">
+                   Fill out the form below and we'll get back to you shortly.
+                 </p>
+               </div>
+
+               <form onSubmit={onSubmit} className="space-y-5">
+                 <div className="grid gap-5 sm:grid-cols-2">
+                   <div className="space-y-2">
+                     <label className="text-sm font-medium text-slate-700" htmlFor="name">
+                       Full Name
+                     </label>
+                     <Input
+                       id="name"
+                       required
+                       value={form.name}
+                       onChange={(e) => update("name", e.target.value)}
+                       placeholder="John Doe"
+                       className="h-12 bg-slate-50 border-slate-200 focus:bg-white transition-colors"
+                     />
+                   </div>
+                   <div className="space-y-2">
+                     <label className="text-sm font-medium text-slate-700" htmlFor="phone">
+                       Phone Number
+                     </label>
+                     <Input
+                       id="phone"
+                       required
+                       value={form.phone}
+                       onChange={(e) => update("phone", e.target.value)}
+                       placeholder="+91 90000 00000"
+                       className="h-12 bg-slate-50 border-slate-200 focus:bg-white transition-colors"
+                     />
+                   </div>
+                 </div>
+
+                 <div className="space-y-2">
+                   <label className="text-sm font-medium text-slate-700" htmlFor="email">
+                     Email Address
+                   </label>
+                   <Input
+                     id="email"
+                     type="email"
+                     required
+                     value={form.email}
+                     onChange={(e) => update("email", e.target.value)}
+                     placeholder="john@company.com"
+                     className="h-12 bg-slate-50 border-slate-200 focus:bg-white transition-colors"
+                   />
+                 </div>
+
+                 <div className="space-y-2">
+                   <label className="text-sm font-medium text-slate-700" htmlFor="message">
+                     Project Requirements
+                   </label>
+                   <Textarea
+                     id="message"
+                     required
+                     value={form.message}
+                     onChange={(e) => update("message", e.target.value)}
+                     placeholder="Tell us about your project, required products, or specific challenges..."
+                     className="min-h-[150px] bg-slate-50 border-slate-200 focus:bg-white transition-colors resize-none p-4"
+                   />
+                 </div>
+
+                 <Button 
+                   type="submit" 
+                   variant="cta" 
+                   size="lg" 
+                   disabled={submitting}
+                   className="w-full h-12 text-base shadow-lg shadow-yellow-500/20"
+                 >
+                   {submitting ? "Sending..." : "Send Message"}
+                   {!submitting && <ArrowRight className="ml-2 h-4 w-4" />}
+                 </Button>
+
+                 <p className="text-center text-xs text-slate-500 mt-4">
+                    Your details are safe with us. We value your privacy.
+                 </p>
+               </form>
+            </div>
+          </div>
+
         </div>
-      </section>
+      </div>
     </div>
   );
 }

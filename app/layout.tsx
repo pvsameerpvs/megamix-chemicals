@@ -34,6 +34,11 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true
+  },
+  icons: {
+    icon: "/images/logo.png",
+    apple: "/images/logo.png",
+    shortcut: "/images/logo.png"
   }
 };
 
