@@ -17,8 +17,31 @@ npm run dev
 
 # 3) Build for production
 npm run build
-npm start
 ```
+
+## Deploy to Cloudflare Pages
+
+This project is Next.js (App Router) and is configured for **static export** so it can be hosted on Cloudflare Pages.
+
+### Option A: Deploy via Cloudflare Dashboard (Git integration)
+
+1) Cloudflare Dashboard -> Workers & Pages -> Create -> Pages -> Connect to Git
+2) Build settings
+- Build command: `npm run build`
+- Build output directory: `out`
+3) Deploy
+
+Recommended build env:
+- Node.js: 20 (set `NODE_VERSION=20` in Pages build environment variables if needed)
+
+### Option B: Deploy via CLI (Wrangler)
+
+```bash
+npm install
+npm run deploy:cf
+```
+
+If your Pages project name is different, change `--project-name` in `package.json`.
 
 ## Project structure
 
@@ -56,4 +79,3 @@ styles/
 - Product details are **modal-based** (no product routes/slugs).
 - Contact form shows a success toast (no backend).
 - Replace placeholder About Us text in `app/about/page.tsx` with your full content when ready.
-

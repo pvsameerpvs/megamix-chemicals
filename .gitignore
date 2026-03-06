@@ -6,9 +6,13 @@ node_modules
 # next
 .next/
 out/
+.vercel/
 
 # production
 build
+
+# cloudflare
+.wrangler/
 
 # misc
 .DS_Store
