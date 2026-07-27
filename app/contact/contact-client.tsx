@@ -13,8 +13,8 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 
 const company = {
-  address: "GODAMBU ROAD MUKKAM KOZHIKKODE KERALA INDIA",
-  phone: "+919747843000",
+  address: "AMH Tower, Main Road, Kizhisseri, Malappuram, Kerala, India 673641",
+  phone: "+91 62357 36919",
   email: "Megamixchemicals@gmail.com"
 };
 

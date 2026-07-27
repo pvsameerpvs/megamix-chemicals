@@ -5,8 +5,8 @@ import { Phone, Mail, MapPin } from "lucide-react";
 
 const company = {
   name: "Megamix Chemicals",
-  address: "Godambu Road, Mukkam, Kozhikode, Kerala, India",
-  phone: "+91 9747 843 000",
+  address: "AMH Tower, Main Road, Kizhisseri, Malappuram, Kerala, India 673641",
+  phone: "+91 62357 36919",
   email: "Megamixchemicals@gmail.com",
   website: "www.megamixchemicals.com"
 };
